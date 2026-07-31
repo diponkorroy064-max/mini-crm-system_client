@@ -9,3 +9,4 @@ export const getUser = () => {
 
     return JSON.parse(user);
 };
+

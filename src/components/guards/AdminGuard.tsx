@@ -1,8 +1,7 @@
 "use client";
-
+import { getUser } from "@/lib/auth/getUser";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { getUser } from "@/utils/auth";
 
 export default function AdminGuard({
     children,

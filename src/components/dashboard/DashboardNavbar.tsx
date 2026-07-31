@@ -1,8 +1,9 @@
 "use client";
 import { Bell, Moon, Search } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getUser, User } from "@/utils/auth";
+import { User } from "@/utils/auth";
 import Image from "next/image";
+import { getUser } from "@/lib/auth/getUser";
 
 
 const DashboardNavbar = () => {
@@ -11,6 +12,7 @@ const DashboardNavbar = () => {
     useEffect(() => {
         setUser(getUser());
     }, []);
+    console.log("user from dashboard navbar", user);
 
 
     return (

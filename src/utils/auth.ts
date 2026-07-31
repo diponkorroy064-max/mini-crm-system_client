@@ -13,10 +13,10 @@ export interface User {
     image?: string | null;
 }
 
-export const getUser = () => {
-    if (typeof window === "undefined") return null;
+// export const getUser = () => {
+//     if (typeof window === "undefined") return null;
 
-    const user = localStorage.getItem("user");
-    return user ? JSON.parse(user) as User : null;
-};
+//     const user = localStorage.getItem("user");
+//     return user ? JSON.parse(user) as User : null;
+// };
 
