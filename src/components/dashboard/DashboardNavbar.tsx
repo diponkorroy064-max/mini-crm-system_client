@@ -1,23 +1,33 @@
 "use client";
-
 import { Bell, Moon, Search } from "lucide-react";
+import { useEffect, useState } from "react";
+import { getUser, User } from "@/utils/auth";
+import Image from "next/image";
 
-const Navbar = () => {
+
+const DashboardNavbar = () => {
+    const [user, setUser] = useState<User | null>(null);
+
+    useEffect(() => {
+        setUser(getUser());
+    }, []);
+
+
     return (
         <header className="sticky top-0 z-50 flex h-20 items-center justify-between border-b bg-white px-6 shadow-sm">
 
-            {/* Left Side */}
+            {/* Left */}
             <div>
                 <h1 className="text-2xl font-bold text-gray-800">
                     Dashboard
                 </h1>
 
                 <p className="text-sm text-gray-500">
-                    Welcome back! 👋
+                    Welcome back, {user?.name || "User"} 👋
                 </p>
             </div>
 
-            {/* Right Side */}
+            {/* Right */}
             <div className="flex items-center gap-5">
 
                 {/* Search */}
@@ -41,7 +51,7 @@ const Navbar = () => {
                     <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-red-500"></span>
                 </button>
 
-                {/* Dark Mode Button */}
+                {/* Dark Mode */}
                 <button className="rounded-full bg-gray-100 p-3 transition hover:bg-blue-100">
                     <Moon size={20} />
                 </button>
@@ -49,28 +59,33 @@ const Navbar = () => {
                 {/* User */}
                 <div className="flex items-center gap-3">
 
-                    <img
-                        src="https://i.pravatar.cc/100"
-                        alt="User"
+                    <Image width={100} height={100}
+                        src={
+                            user?.image ||
+                            "https://ui-avatars.com/api/?name=" +
+                            encodeURIComponent(user?.name || "User")
+                        }
+                        alt={user?.name || "User Avatar"}
                         className="h-11 w-11 rounded-full object-cover"
                     />
 
                     <div className="hidden md:block">
                         <h3 className="font-semibold text-gray-800">
-                            Diponkor Roy
+                            {user?.name}
                         </h3>
 
                         <p className="text-sm text-gray-500">
-                            Administrator
+                            {user?.role === "ADMIN"
+                                ? "Administrator"
+                                : "Staff Member"}
                         </p>
                     </div>
 
                 </div>
 
             </div>
-
         </header>
     );
 };
 
-export default Navbar;
+export default DashboardNavbar;

@@ -30,10 +30,24 @@ const LoginForm = () => {
             }
 
             localStorage.setItem("token", result.data.token);
+            localStorage.setItem(
+                "user",
+                JSON.stringify(result.data.user)
+            );
+            const role = result?.data?.user?.role;
+            console.log("role from login form", role);
+
             alert("Login Successful");
             console.log("Login Success");
-            router.push("/");
-        } catch (error) {
+
+            // router.push("/");
+            if (role === "ADMIN") {
+                router.push("/dashboard/admin");
+            } else {
+                router.push("/dashboard/staff");
+            }
+        }
+        catch (error) {
             console.error(error);
             alert("Something went wrong");
         }

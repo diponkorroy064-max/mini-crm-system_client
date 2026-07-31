@@ -1,32 +1,13 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, Users, ClipboardList, User, LogOut} from "lucide-react";
 import { logout } from "@/services/auth";
+import { adminLinks, staffLinks } from "@/constants/navLinks";
+import { getUser } from "@/utils/auth";
+import { LogOut } from "lucide-react";
 
-
-const menuItems = [
-    {
-        title: "Dashboard",
-        href: "/dashboard",
-        icon: LayoutDashboard,
-    },
-    {
-        title: "Users",
-        href: "/dashboard/users",
-        icon: Users,
-    },
-    {
-        title: "Tasks",
-        href: "/dashboard/tasks",
-        icon: ClipboardList,
-    },
-    {
-        title: "Profile",
-        href: "/dashboard/profile",
-        icon: User,
-    },
-];
+const user = getUser();
+const links = user?.role === "ADMIN" ? adminLinks : staffLinks;
 
 
 const Sidebar = () => {
@@ -54,7 +35,7 @@ const Sidebar = () => {
             {/* Navigation */}
             <nav className="flex-1 p-4">
                 <ul className="space-y-3">
-                    {menuItems.map((item) => {
+                    {links.map((item) => {
                         const Icon = item.icon;
 
                         const isActive = pathname === item.href;
