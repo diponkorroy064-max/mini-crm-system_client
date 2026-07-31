@@ -67,8 +67,7 @@ const RecentTasks = () => {
                     return (
                         <div
                             key={task.id}
-                            className="flex items-center justify-between rounded-xl border p-4 transition hover:bg-gray-50"
-                        >
+                            className="flex items-center justify-between rounded-xl border border-gray-400 px-4 py-2 transition hover:bg-gray-50 shadow">
                             <div>
                                 <h3 className="font-semibold text-gray-800">
                                     {task.title}
@@ -80,8 +79,7 @@ const RecentTasks = () => {
                             </div>
 
                             <div
-                                className={`flex items-center gap-2 rounded-full px-3 py-1 text-sm font-medium ${status.color}`}
-                            >
+                                className={`flex items-center gap-2 rounded-md px-3 py-1 text-sm font-medium ${status.color}`}>
                                 {status.icon}
                                 {task.status}
                             </div>

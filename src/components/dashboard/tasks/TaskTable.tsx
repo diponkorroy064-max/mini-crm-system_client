@@ -1,10 +1,6 @@
 "use client";
+import { CheckCircle, Clock, Eye} from "lucide-react";
 
-import {
-    Eye,
-    Pencil,
-    Trash2,
-} from "lucide-react";
 
 const tasks = [
     {
@@ -17,6 +13,14 @@ const tasks = [
     },
     {
         id: 2,
+        title: "Prepare Sales Report",
+        customer: "ABC Company",
+        priority: "Medium",
+        status: "Completed",
+        dueDate: "20 Aug 2026",
+    },
+    {
+        id: 3,
         title: "Prepare Sales Report",
         customer: "ABC Company",
         priority: "Medium",
@@ -62,8 +66,7 @@ const TaskTable = () => {
                     {tasks.map((task) => (
                         <tr
                             key={task.id}
-                            className="border-t"
-                        >
+                            className="border-t">
                             <td className="px-6 py-4">
                                 {task.title}
                             </td>
@@ -107,12 +110,12 @@ const TaskTable = () => {
                                         <Eye size={18} />
                                     </button>
 
-                                    <button className="text-green-600">
-                                        <Pencil size={18} />
-                                    </button>
-
-                                    <button className="text-red-600">
-                                        <Trash2 size={18} />
+                                    <button className="rounded-full p-2 transition-all duration-200 hover:bg-gray-100">
+                                        {task.status === "Completed" ? (
+                                            <CheckCircle className="h-5 w-5 text-green-600 transition-transform duration-200 hover:scale-110" />
+                                        ) : (
+                                            <Clock className="h-5 w-5 text-yellow-500 transition-transform duration-200 hover:scale-110" />
+                                        )}
                                     </button>
 
                                 </div>

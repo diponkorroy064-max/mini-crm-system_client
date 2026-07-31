@@ -1,5 +1,4 @@
 "use client";
-
 import DashboardCard from "@/components/dashboard/DashboardCard";
 import RecentTasks from "@/components/dashboard/RecentTasks";
 import TaskTable from "@/components/dashboard/TaskTable";

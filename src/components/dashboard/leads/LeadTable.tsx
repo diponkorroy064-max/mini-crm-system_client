@@ -41,8 +41,7 @@ const LeadTable = () => {
                     {leads.map((lead) => (
                         <tr
                             key={lead.id}
-                            className="border-t"
-                        >
+                            className="border-t">
                             <td className="px-6 py-4">{lead.name}</td>
 
                             <td className="px-6 py-4">{lead.email}</td>

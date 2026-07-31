@@ -1,4 +1,4 @@
-import { Eye, Pencil, Trash2 } from "lucide-react";
+import { Eye, Pencil } from "lucide-react";
 
 const tasks = [
     {
@@ -63,27 +63,48 @@ const getPriorityColor = (priority: string) => {
 
 const TaskTable = () => {
     return (
-        <div className="rounded-2xl bg-white p-6 shadow-md">
-            <div className="mb-6 flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-gray-800">
-                    Task List
+        <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+
+            {/* Header */}
+            <div className="border-b bg-gray-50 px-6 py-4">
+                <h2 className="text-xl font-semibold text-gray-800">
+                    My Tasks
                 </h2>
 
-                <button className="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
-                    + Add Task
-                </button>
+                <p className="mt-1 text-sm text-gray-500">
+                    View and manage your assigned tasks.
+                </p>
             </div>
 
+            {/* Table */}
             <div className="overflow-x-auto">
-                <table className="min-w-full border-collapse">
-                    <thead>
-                        <tr className="border-b bg-gray-100 text-left">
-                            <th className="px-4 py-3">Task</th>
-                            <th className="px-4 py-3">Assigned To</th>
-                            <th className="px-4 py-3">Priority</th>
-                            <th className="px-4 py-3">Status</th>
-                            <th className="px-4 py-3">Due Date</th>
-                            <th className="px-4 py-3 text-center">Actions</th>
+                <table className="min-w-full">
+
+                    <thead className="bg-gray-50">
+                        <tr>
+                            <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+                                Task
+                            </th>
+
+                            <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+                                Assigned To
+                            </th>
+
+                            <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+                                Priority
+                            </th>
+
+                            <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+                                Status
+                            </th>
+
+                            <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+                                Due Date
+                            </th>
+
+                            <th className="px-6 py-4 text-center text-sm font-semibold text-gray-600">
+                                Actions
+                            </th>
                         </tr>
                     </thead>
 
@@ -91,53 +112,59 @@ const TaskTable = () => {
                         {tasks.map((task) => (
                             <tr
                                 key={task.id}
-                                className="border-b hover:bg-gray-50"
+                                className="border-t transition hover:bg-gray-50"
                             >
-                                <td className="px-4 py-4 font-medium">
-                                    {task.title}
+                                <td className="px-6 py-4">
+                                    <div>
+                                        <h3 className="font-semibold text-gray-800">
+                                            {task.title}
+                                        </h3>
+
+                                        <p className="text-xs text-gray-500">
+                                            Task ID #{task.id}
+                                        </p>
+                                    </div>
                                 </td>
 
-                                <td className="px-4 py-4">
+                                <td className="px-6 py-4 text-gray-600">
                                     {task.assignedTo}
                                 </td>
 
-                                <td className="px-4 py-4">
+                                <td className="px-6 py-4">
                                     <span
-                                        className={`rounded-full px-3 py-1 text-sm font-medium ${getPriorityColor(
-                                            task.priority
-                                        )}`}
+                                        className={`rounded-full px-3 py-1 text-xs font-semibold ${getPriorityColor(task.priority)}`}
                                     >
                                         {task.priority}
                                     </span>
                                 </td>
 
-                                <td className="px-4 py-4">
+                                <td className="px-6 py-4">
                                     <span
-                                        className={`rounded-full px-3 py-1 text-sm font-medium ${getStatusColor(
-                                            task.status
-                                        )}`}
+                                        className={`rounded-full px-3 py-1 text-xs font-semibold ${getStatusColor(task.status)}`}
                                     >
                                         {task.status}
                                     </span>
                                 </td>
 
-                                <td className="px-4 py-4">
+                                <td className="px-6 py-4 text-gray-600">
                                     {task.dueDate}
                                 </td>
 
-                                <td className="px-4 py-4">
+                                <td className="px-6 py-4">
                                     <div className="flex justify-center gap-3">
 
-                                        <button className="rounded-lg bg-blue-100 p-2 text-blue-600 hover:bg-blue-200">
+                                        {/* View */}
+                                        <button
+                                            className="rounded-lg p-2 text-blue-600 transition hover:bg-blue-100 hover:scale-105"
+                                        >
                                             <Eye size={18} />
                                         </button>
 
-                                        <button className="rounded-lg bg-green-100 p-2 text-green-600 hover:bg-green-200">
+                                        {/* Edit */}
+                                        <button
+                                            className="rounded-lg p-2 text-green-600 transition hover:bg-green-100 hover:scale-105"
+                                        >
                                             <Pencil size={18} />
-                                        </button>
-
-                                        <button className="rounded-lg bg-red-100 p-2 text-red-600 hover:bg-red-200">
-                                            <Trash2 size={18} />
                                         </button>
 
                                     </div>
@@ -145,6 +172,7 @@ const TaskTable = () => {
                             </tr>
                         ))}
                     </tbody>
+
                 </table>
             </div>
         </div>
