@@ -5,14 +5,27 @@ import { logout } from "@/services/auth";
 import { adminLinks, staffLinks } from "@/constants/navLinks";
 import { HomeIcon, LogOut } from "lucide-react";
 import { getUser } from "@/lib/auth/getUser";
-
-const user = getUser();
-const links = user?.role === "ADMIN" ? adminLinks : staffLinks;
+import { useEffect, useState } from "react";
 
 
 const Sidebar = () => {
     const pathname = usePathname();
     const router = useRouter();
+
+    const [mounted, setMounted] = useState(false);
+    const [user, setUser] = useState<any>(null);
+
+
+    useEffect(() => {
+        setUser(getUser());
+        setMounted(true);
+    }, []);
+
+    if (!mounted) {
+        return null;
+    }
+
+    const links = user?.role === "ADMIN" ? adminLinks : staffLinks;
 
     const handleLogout = () => {
         logout();
@@ -23,7 +36,7 @@ const Sidebar = () => {
 
 
     return (
-        <aside className="sticky top-0 flex h-full w-64 flex-col border-r bg-white shadow-md">
+        <aside className="sticky top-0 flex max-h-screen w-64 flex-col border-r bg-white shadow-md">
             {/* Logo */}
             <div className="border-b p-6">
                 <h1 className="text-2xl font-bold text-blue-600">

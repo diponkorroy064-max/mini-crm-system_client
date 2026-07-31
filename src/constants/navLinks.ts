@@ -6,6 +6,7 @@ import {
     BadgeCheck,
     ClipboardList,
 } from "lucide-react";
+import { ImProfile } from "react-icons/im";
 
 
 export const adminLinks = [
@@ -39,8 +40,12 @@ export const adminLinks = [
         href: "/dashboard/admin/tasks",
         icon: ClipboardList,
     },
+    {
+        title: "Profile",
+        href: "/dashboard/admin/profile",
+        icon: ImProfile,
+    },
 ];
-
 
 
 

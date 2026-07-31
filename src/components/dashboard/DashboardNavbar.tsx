@@ -12,7 +12,7 @@ const DashboardNavbar = () => {
     useEffect(() => {
         setUser(getUser());
     }, []);
-    console.log("user from dashboard navbar", user);
+    // console.log("user from dashboard navbar", user);
 
 
     return (

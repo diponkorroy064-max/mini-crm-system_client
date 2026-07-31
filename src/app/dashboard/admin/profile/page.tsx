@@ -1,5 +1,5 @@
 'use client';
-
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 // --- Types ---
@@ -16,7 +16,7 @@ export default function ProfilePage() {
         name: 'Admin User',
         email: 'admin@bdkrishi.com',
         role: 'ADMIN',
-        avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80',
+        avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e',
     });
 
     const [formData, setFormData] = useState({
@@ -82,14 +82,14 @@ export default function ProfilePage() {
                 <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
 
                     {/* Cover & Profile Header Header */}
-                    <div className="h-32 bg-gradient-to-r from-green-600 to-emerald-700"></div>
+                    <div className="h-32 bg-linear-to-r from-green-600 to-emerald-700"></div>
 
                     <div className="px-6 pb-6 relative">
                         <div className="flex flex-col sm:flex-row sm:items-end justify-between -mt-16 sm:-mt-12 mb-6 gap-4">
 
                             {/* Profile Image & Role Badge */}
                             <div className="relative group w-28 h-28">
-                                <img
+                                <Image width={10} height={10}
                                     src={previewImage || profile.avatarUrl}
                                     alt={profile.name}
                                     className="w-28 h-28 rounded-full border-4 border-white object-cover bg-white shadow-md"
