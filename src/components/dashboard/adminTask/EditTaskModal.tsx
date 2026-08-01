@@ -37,10 +37,10 @@ const EditTaskModal = ({
         if (!open || !task) return;
 
         setFormData({
-            title: task.title,
-            description: task.description,
-            assignedToId: task.assignedToId,
-            dueDate: task.dueDate.split("T")[0],
+            title: task.title ?? "",
+            description: task.description ?? "",
+            assignedToId: task.assignedToId ?? 0,
+            dueDate: task.dueDate ? task.dueDate.split("T")[0] : "",
             priority: task.priority,
             status: task.status,
         });

@@ -20,19 +20,14 @@ export interface TaskUser {
 export interface Task {
     id: number;
     title: string;
-    description?: string;
-
+    description: string;
     status: TaskStatus;
     priority: TaskPriority;
-
-    dueDate?: string;
-
+    dueDate: string;
     createdAt: string;
     updatedAt: string;
-
     createdById: number;
-    assignedToId?: number | null;
-
+    assignedToId: number;
     createdBy?: TaskUser;
     assignedTo?: TaskUser | null;
 }
@@ -41,11 +36,8 @@ export interface Task {
 export interface CreateTaskData {
     title: string;
     description?: string;
-
     assignedToId?: number;
-
     priority?: TaskPriority;
-
     dueDate?: string;
 }
 
@@ -53,13 +45,9 @@ export interface CreateTaskData {
 export interface UpdateTaskData {
     title?: string;
     description?: string;
-
     status?: TaskStatus;
-
     priority?: TaskPriority;
-
     assignedToId?: number;
-
     dueDate?: string;
 }
 
