@@ -3,12 +3,12 @@ import { useState } from "react";
 import { useLeads } from "@/hooks/useLeads";
 import { Lead, CreateLeadData, UpdateLeadData, } from "@/types/lead";
 import { createLead, updateLead, deleteLead, } from "@/services/lead";
-import LeadHeader from "@/components/dashboard/adminLead/LeadHeader";
-import SearchBar from "@/components/dashboard/adminLead/SearchBar";
-import LeadTable from "@/components/dashboard/adminLead/LeadTable";
-import CreateLeadModal from "@/components/dashboard/adminLead/CreateLeadModal";
-import EditLeadModal from "@/components/dashboard/adminLead/EditLeadModal";
-import DeleteLeadModal from "@/components/dashboard/adminLead/DeleteLeadModal";
+import LeadHeader from "@/components/dashboard/admin-lead/LeadHeader";
+import SearchBar from "@/components/dashboard/admin-lead/SearchBar";
+import LeadTable from "@/components/dashboard/admin-lead/LeadTable";
+import CreateLeadModal from "@/components/dashboard/admin-lead/CreateLeadModal";
+import EditLeadModal from "@/components/dashboard/admin-lead/EditLeadModal";
+import DeleteLeadModal from "@/components/dashboard/admin-lead/DeleteLeadModal";
 import toast from "react-hot-toast";
 
 

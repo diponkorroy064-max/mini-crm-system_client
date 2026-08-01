@@ -1,7 +1,7 @@
 "use client";
-import DashboardCard from "@/components/dashboard/DashboardCard";
-import RecentTasks from "@/components/dashboard/RecentTasks";
-import TaskTable from "@/components/dashboard/TaskTable";
+import DashboardCard from "@/components/dashboard/admin-dashboard/DashboardCard";
+import RecentTasks from "@/components/dashboard/admin-dashboard/RecentTasks";
+import TaskTable from "@/components/dashboard/admin-dashboard/TaskTable";
 import {
     ClipboardList,
     Clock3,

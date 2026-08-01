@@ -2,11 +2,11 @@
 import { useState } from "react";
 import { useTasks } from "@/hooks/useTasks";
 import { Task } from "@/types/task";
-import SearchBar from "@/components/dashboard/adminTask/SearchBar";
-import TaskTable from "@/components/dashboard/adminTask/TaskTable";
-import CreateTaskModal from "@/components/dashboard/adminTask/CreateTaskModal";
-import EditTaskModal from "@/components/dashboard/adminTask/EditTaskModal";
-import DeleteTaskModal from "@/components/dashboard/adminTask/DeleteTaskModal";
+import SearchBar from "@/components/dashboard/admin-task/SearchBar";
+import TaskTable from "@/components/dashboard/admin-task/TaskTable";
+import CreateTaskModal from "@/components/dashboard/admin-task/CreateTaskModal";
+import EditTaskModal from "@/components/dashboard/admin-task/EditTaskModal";
+import DeleteTaskModal from "@/components/dashboard/admin-task/DeleteTaskModal";
 import { createTask, deleteTask, updateTask } from "@/services/task";
 
 

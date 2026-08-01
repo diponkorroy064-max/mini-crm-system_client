@@ -71,9 +71,7 @@ export default function AdminAnalyticsPage() {
             </div>
 
             {/* Charts */}
-
             <div className="grid gap-6 lg:grid-cols-2">
-
                 {/* Customer Growth */}
 
                 <div className="rounded-xl bg-white p-6 shadow">
@@ -105,7 +103,6 @@ export default function AdminAnalyticsPage() {
                 </div>
 
                 {/* Task Status */}
-
                 <div className="rounded-xl bg-white p-6 shadow">
 
                     <h2 className="mb-5 text-xl font-semibold">
@@ -114,15 +111,13 @@ export default function AdminAnalyticsPage() {
 
                     <ResponsiveContainer width="100%" height={320}>
                         <PieChart>
-
                             <Pie
                                 data={taskStatus}
                                 cx="50%"
                                 cy="50%"
                                 outerRadius={110}
                                 dataKey="value"
-                                label
-                            >
+                                label>
                                 {taskStatus.map((entry, index) => (
                                     <Cell
                                         key={index}
@@ -132,16 +127,11 @@ export default function AdminAnalyticsPage() {
                             </Pie>
 
                             <Tooltip />
-
                             <Legend />
-
                         </PieChart>
                     </ResponsiveContainer>
-
                 </div>
-
             </div>
-
         </div>
     );
 }

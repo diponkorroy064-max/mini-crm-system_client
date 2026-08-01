@@ -1,13 +1,20 @@
 "use client";
-import { Users, UserPlus, Briefcase, ClipboardList, CheckCircle, Clock3 } from "lucide-react";
-import DashboardCard from "@/components/dashboard/DashboardCard";
-import Chart from "@/components/dashboard/Chart";
-import RecentTasks from "@/components/dashboard/RecentTasks";
-import TaskTable from "@/components/dashboard/TaskTable";
-// import { Toaster } from "react-hot-toast";
+import { Users, UserPlus, ClipboardList, CheckCircle, Clock3 } from "lucide-react";
+import DashboardCard from "@/components/dashboard/admin-dashboard/DashboardCard";
+import RecentTasks from "@/components/dashboard/admin-dashboard/RecentTasks";
+import TaskTable from "@/components/dashboard/admin-dashboard/TaskTable";
+import Chart from "@/components/dashboard/admin-dashboard/Chart";
+import { useDashboard } from "@/hooks/useDashboard";
 
 
 export default function AdminDashboardPage() {
+    const {
+        stats,
+        loading,
+        error,
+    } = useDashboard();
+
+
     return (
         <div className="space-y-8">
             {/* Page Heading */}
@@ -21,29 +28,30 @@ export default function AdminDashboardPage() {
                 </p>
             </div>
 
+            
             {/* Statistics */}
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
                 <DashboardCard
                     title="Total Users"
-                    value={25}
+                    value={stats?.totalUsers ?? 0}
                     icon={Users}
                     color="bg-blue-600" />
 
                 <DashboardCard
-                    title="Customers"
-                    value={145}
-                    icon={Briefcase}
-                    color="bg-green-600" />
+                    title="New Leads"
+                    value={stats?.newLeads ?? 0}
+                    icon={UserPlus}
+                    color="bg-green-600"/>
 
                 <DashboardCard
                     title="Leads"
-                    value={38}
+                    value={stats?.totalLeads ?? 0}
                     icon={UserPlus}
                     color="bg-orange-500" />
 
                 <DashboardCard
                     title="Tasks"
-                    value={82}
+                    value={stats?.totalTasks ?? 0}
                     icon={ClipboardList}
                     color="bg-purple-600" />
             </div>
@@ -52,26 +60,32 @@ export default function AdminDashboardPage() {
             <div className="grid gap-6 md:grid-cols-2">
                 <DashboardCard
                     title="Completed Tasks"
-                    value={64}
+                    value={stats?.completedTasks ?? 0}
                     icon={CheckCircle}
                     color="bg-emerald-600" />
 
                 <DashboardCard
                     title="Pending Tasks"
-                    value={18}
+                    value={stats?.pendingTasks ?? 0}
                     icon={Clock3}
                     color="bg-red-500" />
             </div>
 
             
             {/* Analytics */}
-            <div className="grid gap-6 lg:grid-cols-3">
-                <div className="lg:col-span-2">
-                    <Chart />
-                </div>
+            <div className="grid gap-6 lg:grid-cols-2">
 
-                <RecentTasks />
+                <Chart
+                    title="Lead Status Overview"
+                    data={stats?.leadChartData ?? []}
+                />
+
+                <Chart
+                    title="Task Status Overview"
+                    data={stats?.taskChartData ?? []}
+                />
             </div>
+            <RecentTasks />
 
             {/* Recent Tasks Table */}
             <TaskTable />
