@@ -1,14 +1,14 @@
 # Mini CRM System - Client
 
-A modern Customer Relationship Management (CRM) web application built with **Next.js**, **TypeScript**, and **Tailwind CSS**. This frontend provides an intuitive dashboard for administrators and staff to manage customers, leads, and tasks efficiently.
+A modern Customer Relationship Management (CRM) web application built with **Next.js**, **React**, **TypeScript**, and **Tailwind CSS**. This frontend provides an intuitive dashboard for administrators and staff to manage customers, leads, and tasks efficiently.
 
 ---
 
 ## 🚀 Live Demo
 
-**Client:** https://your-client-url.vercel.app
+**Client:** https://mini-crm-systemclient.vercel.app
 
-**Server:** https://your-server-url.vercel.app
+**Server:** https://mini-crm-systemserver.vercel.app
 
 ---
 
@@ -67,7 +67,6 @@ A modern Customer Relationship Management (CRM) web application built with **Nex
 - TypeScript
 - React
 - Tailwind CSS
-- Axios
 - React Hook Form
 - Zod
 - React Hot Toast
@@ -87,7 +86,6 @@ src
 │
 ├── components
 │   ├── dashboard
-│   ├── shared
 │   ├── ui
 │   └── forms
 │
@@ -109,7 +107,7 @@ src
 Clone the repository
 
 ```bash
-git clone https://github.com/your-username/mini-crm-client.git
+https://github.com/diponkorroy064-max/mini-crm-system_client
 ```
 
 Go to project
@@ -131,13 +129,13 @@ npm install
 Create a `.env.local` file.
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:8000/api
+NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
 For production
 
 ```env
-NEXT_PUBLIC_API_URL=https://your-server.vercel.app/api
+NEXT_PUBLIC_API_URL= https://mini-crm-systemserver.vercel.app
 ```
 
 ---
@@ -278,6 +276,6 @@ GitHub:
 https://github.com/diponkorroy064-max
 
 LinkedIn:
-https://linkedin.com/in/your-linkedin
+https://www.linkedin.com/in/diponkorroy21010504
 
 ---
