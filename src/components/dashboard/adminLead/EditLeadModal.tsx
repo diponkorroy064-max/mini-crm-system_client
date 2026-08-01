@@ -104,10 +104,11 @@ const EditLeadModal = ({
         onClose();
     };
 
-    return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
 
-            <div className="w-full max-w-3xl rounded-xl bg-white shadow-xl">
+    return (
+        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/50 p-3 sm:p-4">
+
+            <div className="my-6 w-full max-w-3xl rounded-xl bg-white shadow-xl max-h-[90vh] overflow-y-auto">
 
                 <div className="flex items-center justify-between border-b p-5">
 
@@ -146,7 +147,7 @@ const EditLeadModal = ({
 
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
 
                         <div>
 

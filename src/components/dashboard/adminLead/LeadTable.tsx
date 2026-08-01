@@ -42,6 +42,8 @@ const LeadTable = ({
         );
     }
 
+
+
     return (
         <div className="overflow-hidden rounded-xl bg-white shadow">
 
@@ -49,18 +51,18 @@ const LeadTable = ({
 
                 <table className="min-w-full">
 
-                    <thead className="bg-gray-100">
+                    <thead className="bg-gray-100 text-sm">
 
                         <tr>
-                            <th className="px-6 py-4 text-left">Customer</th>
-                            <th className="px-6 py-4 text-left">Email</th>
-                            <th className="px-6 py-4 text-left">Phone</th>
-                            <th className="px-6 py-4 text-left">Company</th>
-                            <th className="px-6 py-4 text-left">Source</th>
-                            <th className="px-6 py-4 text-left">Status</th>
-                            <th className="px-6 py-4 text-left">Assigned</th>
-                            <th className="px-6 py-4 text-left">Created</th>
-                            <th className="px-6 py-4 text-center">Actions</th>
+                            <th className="px-2 py-4 text-left">Customer</th>
+                            <th className="px-2 py-4 text-left">Email</th>
+                            <th className="px-2 py-4 text-left">Phone</th>
+                            <th className="px-2 py-4 text-left">Company</th>
+                            <th className="px-2 py-4 text-left">Source</th>
+                            <th className="px-2 py-4 text-left">Status</th>
+                            <th className="px-2 py-4 text-left">Assigned</th>
+                            <th className="px-2 py-4 text-left">Created</th>
+                            <th className="px-2 py-4 text-center">Actions</th>
                         </tr>
 
                     </thead>
@@ -81,29 +83,28 @@ const LeadTable = ({
                         {leads.map((lead) => (
                             <tr
                                 key={lead.id}
-                                className="border-t hover:bg-gray-50"
-                            >
-                                <td className="px-6 py-4 font-medium">
+                                className="border-t text-sm hover:bg-gray-50">
+                                <td className="px-2 py-4 font-medium">
                                     {lead.customerName}
                                 </td>
 
-                                <td className="px-6 py-4">
+                                <td className="px-2 py-4">
                                     {lead.email}
                                 </td>
 
-                                <td className="px-6 py-4">
+                                <td className="px-2 py-4">
                                     {lead.phone}
                                 </td>
 
-                                <td className="px-6 py-4">
+                                <td className="px-2 py-4">
                                     {lead.company}
                                 </td>
 
-                                <td className="px-6 py-4">
+                                <td className="px-2 py-4">
                                     {lead.source}
                                 </td>
 
-                                <td className="px-6 py-4">
+                                <td className="px-2 py-4">
                                     <span
                                         className={`rounded-full px-3 py-1 text-xs font-semibold ${getStatusColor(
                                             lead.status
@@ -113,17 +114,17 @@ const LeadTable = ({
                                     </span>
                                 </td>
 
-                                <td className="px-6 py-4">
+                                <td className="px-2 py-4">
                                     {lead.assignedTo?.name ?? "-"}
                                 </td>
 
-                                <td className="px-6 py-4">
+                                <td className="px-2 py-4">
                                     {new Date(
                                         lead.createdAt
                                     ).toLocaleDateString()}
                                 </td>
 
-                                <td className="px-6 py-4">
+                                <td className="px-2 py-4">
                                     <div className="flex justify-center gap-2">
 
                                         <button
